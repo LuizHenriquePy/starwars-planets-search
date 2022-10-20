@@ -3,9 +3,9 @@ import Table from '../components/Table';
 
 function Main() {
   return (
-    <div>
+    <main>
       <Table />
-    </div>
+    </main>
   );
 }
 
