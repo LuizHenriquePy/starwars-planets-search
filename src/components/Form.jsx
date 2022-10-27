@@ -1,13 +1,31 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { SWContext } from '../Context/starWarsProvider';
 
 function Form() {
-  const { textFilter, setTextFilter, addConfigData } = useContext(SWContext);
+  const {
+    textFilter,
+    setTextFilter,
+    addConfigData,
+    configData,
+  } = useContext(SWContext);
+  const [formColumnFilter, setFormColumnFilter] = useState([]);
   const [formFilter, setFormFilter] = useState({
-    columnName: 'population',
+    columnName: formColumnFilter[0],
     comparison: 'maior que',
     value: 0,
   });
+
+  useEffect(() => {
+    const listColumnNames = [
+      'population', 'orbital_period', 'diameter', 'rotation_period', 'surface_water'];
+    const listColumnSelect = configData.map((el) => el.columnName);
+    const a = listColumnNames.filter((el) => !(listColumnSelect.includes(el)));
+    setFormColumnFilter(a);
+    setFormFilter((prev) => ({ ...prev, columnName: a[0] }));
+    const columnSelect = document.querySelector('#columnSelectId');
+    const [colName] = a;
+    columnSelect.value = colName;
+  }, [configData]);
 
   const handleChangeFormFilter = ({ target }) => {
     setFormFilter({ ...formFilter, [target.name]: target.value });
@@ -27,12 +45,9 @@ function Form() {
         name="columnName"
         onChange={ handleChangeFormFilter }
         data-testid="column-filter"
+        id="columnSelectId"
       >
-        <option value="population">population</option>
-        <option value="orbital_period">orbital_period</option>
-        <option value="diameter">diameter</option>
-        <option value="rotation_period">rotation_period</option>
-        <option value="surface_water">surface_water</option>
+        {formColumnFilter.map((el) => <option key={ el } value={ el }>{ el }</option>)}
       </select>
       <select
         value={ formFilter.comparison }

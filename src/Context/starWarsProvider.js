@@ -50,12 +50,12 @@ function Provider({ children }) {
   }, [planetsList, configData, textFilter]);
 
   const contextValue = useMemo(() => {
-    const deleteConfigData = (columnName) => {
-      setConfigData(configData.filter((el) => el.comumnName !== columnName));
+    const deleteConfigData = ({ columnName }) => {
+      setConfigData((prev) => [...prev.filter((e) => e.columnName !== columnName)]);
     };
 
     const addConfigData = (newConfigData) => {
-      setConfigData([...configData, newConfigData]);
+      setConfigData((prev) => [...prev, newConfigData]);
     };
 
     return ({
@@ -66,6 +66,7 @@ function Provider({ children }) {
       textFilter,
       setTextFilter,
       selectedListPlanets,
+      setConfigData,
     });
   }, [planetsList, configData, textFilter, selectedListPlanets]);
 
