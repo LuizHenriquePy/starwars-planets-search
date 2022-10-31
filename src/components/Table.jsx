@@ -2,7 +2,34 @@ import React, { useContext } from 'react';
 import { SWContext } from '../Context/starWarsProvider';
 
 function Table() {
-  const { selectedListPlanets, planetsList } = useContext(SWContext);
+  const { selectedListPlanets, planetsList, orderPlanet } = useContext(SWContext);
+
+  let list = selectedListPlanets;
+  if (orderPlanet.column && orderPlanet.sort) {
+    if (orderPlanet.sort === 'ASC') {
+      list = list.sort((arg1, arg2) => {
+        if (arg1[orderPlanet.column] === 'unknown') {
+          return 1;
+        }
+        if (arg2[orderPlanet.column] === 'unknown') {
+          return 1 - 2;
+        }
+        return Number(arg1[orderPlanet.column])
+        - Number(arg2[orderPlanet.column]);
+      });
+    } else if (orderPlanet.sort === 'DESC') {
+      list = list.sort((arg1, arg2) => {
+        if (arg1[orderPlanet.column] === 'unknown') {
+          return 1;
+        }
+        if (arg2[orderPlanet.column] === 'unknown') {
+          return 1 - 2;
+        }
+        return Number(arg2[orderPlanet.column])
+        - Number(arg1[orderPlanet.column]);
+      });
+    }
+  }
 
   return (
     <table>
@@ -13,9 +40,9 @@ function Table() {
         </tr>
       </thead>
       <tbody>
-        {selectedListPlanets.map((el) => (
+        {list.map((el) => (
           <tr key={ el.name }>
-            <td>{el.name}</td>
+            <td data-testid="planet-name">{el.name}</td>
             <td>{el.rotation_period}</td>
             <td>{el.orbital_period}</td>
             <td>{el.diameter}</td>

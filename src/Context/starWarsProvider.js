@@ -8,6 +8,7 @@ function Provider({ children }) {
   const [selectedListPlanets, setSelectListPlanets] = useState([]);
   const [configData, setConfigData] = useState([]);
   const [textFilter, setTextFilter] = useState('');
+  const [orderPlanet, setOrderPlanet] = useState({ column: '', sort: '' });
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -44,7 +45,6 @@ function Provider({ children }) {
             .filter((el) => Number(el[config.columnName]) === Number(config.value));
         }
       });
-
       setSelectListPlanets(list);
     }
   }, [planetsList, configData, textFilter]);
@@ -53,11 +53,9 @@ function Provider({ children }) {
     const deleteConfigData = ({ columnName }) => {
       setConfigData((prev) => [...prev.filter((e) => e.columnName !== columnName)]);
     };
-
     const addConfigData = (newConfigData) => {
       setConfigData((prev) => [...prev, newConfigData]);
     };
-
     return ({
       planetsList,
       configData,
@@ -67,8 +65,10 @@ function Provider({ children }) {
       setTextFilter,
       selectedListPlanets,
       setConfigData,
+      setOrderPlanet,
+      orderPlanet,
     });
-  }, [planetsList, configData, textFilter, selectedListPlanets]);
+  }, [planetsList, configData, textFilter, selectedListPlanets, orderPlanet]);
 
   return (
     <SWContext.Provider value={ contextValue }>
