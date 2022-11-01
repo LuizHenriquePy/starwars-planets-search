@@ -1,12 +1,12 @@
 import React from 'react';
 import Table from '../components/Table';
-import Form from '../components/Form';
+import Forms from '../components/Forms';
 import ViewFilters from '../components/ViewFilters';
 
 function Main() {
   return (
     <main>
-      <Form />
+      <Forms />
       <ViewFilters />
       <Table />
     </main>

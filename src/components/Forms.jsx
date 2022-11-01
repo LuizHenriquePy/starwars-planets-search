@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { SWContext } from '../Context/starWarsProvider';
 
-function Form() {
+function Forms() {
   const {
     textFilter,
     setTextFilter,
@@ -142,4 +142,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default Forms;
