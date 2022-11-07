@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { SWContext } from '../Context/starWarsProvider';
+import trash from '../assets/trash.png';
 
 function ViewFilters() {
   const { configData, setConfigData, deleteConfigData } = useContext(SWContext);
@@ -7,19 +8,31 @@ function ViewFilters() {
   const removeAllFilter = () => setConfigData([]);
 
   return (
-    <div>
+    <div className="view-filters">
       <button
         type="button"
         onClick={ removeAllFilter }
         data-testid="button-remove-filters"
+        className="btn btn-outline-danger button-remove-all-filters"
       >
         Remover todas filtragens
       </button>
-      {configData.map((el) => (
-        <div key={ el.columnName } data-testid="filter">
-          {`${el.columnName} | ${el.comparison} | ${el.value}`}
-          <button type="button" onClick={ () => deleteConfigData(el) }>X</button>
-        </div>))}
+      <div className="filters">
+        {configData.map((el) => (
+          <div key={ el.columnName } data-testid="filter" className="divFilter">
+            {`${el.columnName} | ${el.comparison} | ${el.value}`}
+            <button
+              type="button"
+              onClick={ () => deleteConfigData(el) }
+              className="buttonFilter"
+            >
+              <img
+                src={ trash }
+                alt=""
+              />
+            </button>
+          </div>))}
+      </div>
     </div>
   );
 }

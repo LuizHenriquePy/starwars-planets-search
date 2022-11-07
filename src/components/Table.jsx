@@ -32,32 +32,34 @@ function Table() {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          {planetsList
-          && Object.keys(planetsList[0]).map((el) => <th key={ el }>{ el }</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {list.map((el) => (
-          <tr key={ el.name }>
-            <td data-testid="planet-name">{el.name}</td>
-            <td>{el.rotation_period}</td>
-            <td>{el.orbital_period}</td>
-            <td>{el.diameter}</td>
-            <td>{el.climate}</td>
-            <td>{el.gravity}</td>
-            <td>{el.terrain}</td>
-            <td>{el.surface_water}</td>
-            <td>{el.population}</td>
-            <td>{el.films}</td>
-            <td>{el.created}</td>
-            <td>{el.edited}</td>
-            <td>{el.url}</td>
-          </tr>))}
-      </tbody>
-    </table>
+    <div className="table-responsive table">
+      <table className="table table-hover table-bordered align-middle table-dark">
+        <thead>
+          <tr>
+            {planetsList
+            && Object.keys(planetsList[0]).map((el) => <th key={ el }>{ el }</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {list.map((el) => (
+            <tr key={ el.name }>
+              <td data-testid="planet-name">{el.name}</td>
+              <td>{el.rotation_period}</td>
+              <td>{el.orbital_period}</td>
+              <td>{el.diameter}</td>
+              <td>{el.climate}</td>
+              <td>{el.gravity}</td>
+              <td>{el.terrain}</td>
+              <td>{el.surface_water}</td>
+              <td>{el.population}</td>
+              <td>{el.films}</td>
+              <td>{el.created}</td>
+              <td>{el.edited}</td>
+              <td>{el.url}</td>
+            </tr>))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

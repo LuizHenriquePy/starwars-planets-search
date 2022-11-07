@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+// eslint-disable-next-line jsx-a11y/label-has-associated-control
 import React, { useState, useContext, useEffect } from 'react';
 import { SWContext } from '../Context/starWarsProvider';
+import search from '../assets/search.png';
 
 function Forms() {
   const {
@@ -52,92 +55,114 @@ function Forms() {
   };
 
   return (
-    <div>
+    <div className="box">
       <form>
-        <input
-          type="text"
-          name="text"
-          value={ textFilter }
-          data-testid="name-filter"
-          onChange={ ({ target }) => setTextFilter(target.value) }
-        />
-        <select
-          value={ formFilter.column }
-          name="columnName"
-          onChange={ handleChangeFormFilter }
-          data-testid="column-filter"
-          id="columnSelectId"
-        >
-          {formColumnFilter.map((el) => <option key={ el } value={ el }>{ el }</option>)}
-        </select>
-        <select
-          value={ formFilter.comparison }
-          name="comparison"
-          onChange={ handleChangeFormFilter }
-          data-testid="comparison-filter"
-        >
-          <option value="maior que">maior que</option>
-          <option value="menor que">menor que</option>
-          <option value="igual a">igual a</option>
-        </select>
-        <input
-          value={ formFilter.value }
-          name="value"
-          onChange={ handleChangeFormFilter }
-          type="number"
-          data-testid="value-filter"
-        />
-        <input
-          type="submit"
-          value="FILTRAR"
-          data-testid="button-filter"
-          onClick={ handleClickFormFilter }
-        />
-      </form>
-      <form>
-        <select
-          name="columnsOrder"
-          value={ order.column }
-          id=""
-          onChange={ handleSelectedFormOrder }
-          data-testid="column-sort"
-        >
-          <option value="population">population</option>
-          <option value="orbital_period">orbital_period</option>
-          <option value="diameter">diameter</option>
-          <option value="rotation_period">rotation_period</option>
-          <option value="surface_water">surface_water</option>
-        </select>
-        <label htmlFor="ascendente">
+        <div className="divNameFilter">
           <input
-            type="radio"
-            name="sort"
-            value="ASC"
-            id="ascendente"
-            data-testid="column-sort-input-asc"
-            onChange={ handleRadioClickFormOrder }
+            type="text"
+            name="text"
+            value={ textFilter }
+            data-testid="name-filter"
+            onChange={ ({ target }) => setTextFilter(target.value) }
+            className="form-control"
+          />
+          <button type="button">
+            <img src={ search } alt="" width="25px" />
+          </button>
+        </div>
+      </form>
+      <div className="box1">
+        <form className="boxForm">
+          <select
+            name="columnsOrder"
+            value={ order.column }
+            id=""
+            onChange={ handleSelectedFormOrder }
+            data-testid="column-sort"
+            className="form-select"
+          >
+            <option value="population">population</option>
+            <option value="orbital_period">orbital_period</option>
+            <option value="diameter">diameter</option>
+            <option value="rotation_period">rotation_period</option>
+            <option value="surface_water">surface_water</option>
+          </select>
 
-          />
-          Ascendente
-        </label>
-        <label htmlFor="descendente">
+          <div className="form-check">
+            <input
+              type="radio"
+              name="sort"
+              value="ASC"
+              id="ascendente"
+              data-testid="column-sort-input-asc"
+              onChange={ handleRadioClickFormOrder }
+              className="form-check-input"
+            />
+            <label className="form-check-label" htmlFor="ascendente">
+              Ascendente
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="sort"
+              value="DESC"
+              id="descendente"
+              data-testid="column-sort-input-desc"
+              onChange={ handleRadioClickFormOrder }
+            />
+            <label className="form-check-label" htmlFor="descendente">
+              Descendente
+            </label>
+          </div>
           <input
-            type="radio"
-            name="sort"
-            value="DESC"
-            id="descendente"
-            data-testid="column-sort-input-desc"
-            onChange={ handleRadioClickFormOrder }
+            type="submit"
+            value="ORDENAR"
+            onClick={ handleClickFormOrder }
+            data-testid="column-sort-button"
+            className="btn btn-outline-warning"
           />
-          Descendente
-        </label>
-        <input
-          type="submit"
-          value="ORDENAR"
-          onClick={ handleClickFormOrder }
-          data-testid="column-sort-button"
-        />
-      </form>
+        </form>
+        <form className="boxForm">
+          <select
+            value={ formFilter.column }
+            name="columnName"
+            onChange={ handleChangeFormFilter }
+            data-testid="column-filter"
+            id="columnSelectId"
+            className="form-select"
+          >
+            {formColumnFilter
+              .map((el) => <option key={ el } value={ el }>{ el }</option>)}
+          </select>
+          <select
+            value={ formFilter.comparison }
+            name="comparison"
+            onChange={ handleChangeFormFilter }
+            data-testid="comparison-filter"
+            className="form-select"
+          >
+            <option value="maior que">maior que</option>
+            <option value="menor que">menor que</option>
+            <option value="igual a">igual a</option>
+          </select>
+          <input
+            value={ formFilter.value }
+            name="value"
+            onChange={ handleChangeFormFilter }
+            type="number"
+            className="form-control form-input-value"
+          />
+          <input
+            type="submit"
+            value="FILTRAR"
+            data-testid="button-filter"
+            onClick={ handleClickFormFilter }
+            className="btn btn-outline-warning"
+          />
+        </form>
+      </div>
     </div>
   );
 }

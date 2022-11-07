@@ -5,11 +5,13 @@ import ViewFilters from '../components/ViewFilters';
 
 function Main() {
   return (
-    <main>
+    <div className="main">
+      <header className="display-1 header">STAR WARS PLANETS</header>
       <Forms />
       <ViewFilters />
       <Table />
-    </main>
+      <a href="https://www.flaticon.com/free-icons/search" title="search icons">Search icons created by Freepik - Flaticon</a>
+    </div>
   );
 }
 
