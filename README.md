@@ -1,10 +1,16 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Star Wars Planets
+O projeto lista os planetas que aparecem na série de filmes Star Wars. É possível ordenar a tabela por coluna de forma ascendente e descendente, adicionar filtros por colunas e pesquisar pelo nome do planeta.
+## Tecnologias usadas
+- Bootstrap
+- React
+- JavaScript
+- CSS
+- HTML
+## Como executar o projeto
+```sh
+npm start
+```
+## Como executar os testes
+```sh
+npm run test
+```
