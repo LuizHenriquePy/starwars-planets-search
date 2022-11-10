@@ -1,5 +1,5 @@
 # Star Wars Planets
-O projeto lista os planetas que aparecem na série de filmes Star Wars. É possível ordenar a tabela por coluna de forma ascendente e descendente, adicionar filtros por colunas e pesquisar pelo nome do planeta.
+O projeto lista em uma tabela os planetas que aparecem na série de filmes Star Wars. É possível ordenar a tabela por coluna de forma ascendente e descendente, adicionar filtros por colunas e pesquisar pelo nome do planeta.
 ## Tecnologias usadas
 - Bootstrap
 - React
