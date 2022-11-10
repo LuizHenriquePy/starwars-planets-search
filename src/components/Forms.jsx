@@ -56,7 +56,7 @@ function Forms() {
 
   return (
     <div className="box">
-      <form>
+      <form onSubmit={ (event) => event.preventDefault() }>
         <div className="divNameFilter">
           <input
             type="text"
@@ -153,7 +153,6 @@ function Forms() {
             onChange={ handleChangeFormFilter }
             type="number"
             className="form-control form-input-value"
-            data-testid="value-filter"
           />
           <input
             type="submit"
