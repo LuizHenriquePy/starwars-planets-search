@@ -7,6 +7,15 @@ O projeto lista em uma tabela os planetas que aparecem na série de filmes Star 
 - CSS
 - HTML
 ## Como executar o projeto
+Faça o clone do repositório:
+```sh
+git clone https://github.com/LuizHenriquePy/starwars-planets-search.git
+```
+Faça a instalação das bibliotecas necessárias:
+```sh
+npm install
+```
+Execute o projeto:
 ```sh
 npm start
 ```
