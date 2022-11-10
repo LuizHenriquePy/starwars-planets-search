@@ -87,6 +87,11 @@ td, th {
   margin-top: 20px;
 }
 
+.titleLoading {
+  color: white;
+  text-align: center;
+}
+
 
 /* Component ViewFilters */
 .view-filters {

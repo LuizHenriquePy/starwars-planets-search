@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React, { useContext } from 'react';
 import { SWContext } from '../Context/starWarsProvider';
 
@@ -33,7 +34,9 @@ function Table() {
 
   return (
     <div className="table-responsive table">
-      <table className="table table-hover table-bordered align-middle table-dark">
+      {planetsList ? (<table
+        className="table table-hover table-bordered align-middle table-dark"
+      >
         <thead>
           <tr>
             {planetsList
@@ -58,7 +61,7 @@ function Table() {
               <td>{el.url}</td>
             </tr>))}
         </tbody>
-      </table>
+      </table>) : <h1 className="display-1 titleLoading">Carregando...</h1>}
     </div>
   );
 }
