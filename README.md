@@ -7,6 +7,7 @@ O projeto lista em uma tabela os planetas que aparecem na série de filmes Star 
 - JavaScript
 - CSS
 - HTML
+- Context API
 ## Como executar o projeto
 Faça o clone do repositório:
 ```sh
