@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
-import testData from '../../cypress/mocks/testData';
+import testData from './mocks/testData';
 
 describe('Testa aplicação Star Wars Planets', () => {
   beforeAll(() => {
@@ -73,7 +73,7 @@ describe('Testa aplicação Star Wars Planets', () => {
     expect(screen.getAllByRole('row').length).toBe(4);
     expect(screen.getAllByTestId('filter').length).toBe(2);
 
-    userEvent.click(screen.getAllByRole('button', { name: 'X' })[0])
+    userEvent.click(screen.getAllByTestId('button-filter-delete')[0])
     expect(screen.getAllByRole('row').length).toBe(6);
     expect(screen.getAllByTestId('filter').length).toBe(1);
 

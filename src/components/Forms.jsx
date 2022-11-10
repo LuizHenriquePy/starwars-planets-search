@@ -153,6 +153,7 @@ function Forms() {
             onChange={ handleChangeFormFilter }
             type="number"
             className="form-control form-input-value"
+            data-testid="value-filter"
           />
           <input
             type="submit"

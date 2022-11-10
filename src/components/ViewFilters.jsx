@@ -25,6 +25,7 @@ function ViewFilters() {
               type="button"
               onClick={ () => deleteConfigData(el) }
               className="buttonFilter"
+              data-testid="button-filter-delete"
             >
               <img
                 src={ trash }
